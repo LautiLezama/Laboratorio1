@@ -3,6 +3,8 @@
 
 int main()
 {
+
+
     float altura;
     int edad;
     char sexo;
