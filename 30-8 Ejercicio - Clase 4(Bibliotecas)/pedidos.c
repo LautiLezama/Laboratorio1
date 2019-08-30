@@ -1,6 +1,7 @@
 #include "pedidos.h"
 
 
+
 int pedirEntero(char msj[], int min, int max)
 {
     int unNumero;
