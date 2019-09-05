@@ -17,7 +17,6 @@ int main()
     int minimo;
     float promedio;
 
-    inicializarArray(listadoDeNumeros, 6);
 
     cargaSecuencialArray(listadoDeNumeros, 6, "Ingrese su edad : ");
 
@@ -88,17 +87,6 @@ int darMinimo(int myArray[], int cantidad)
     return minimo;
 }
 
-int inicializarArray(int myArray[], int cantidad)
-{
-    int i;
-
-    for(i=0 ; i < cantidad ; i++)
-    {
-        myArray[i] = 0;
-    }
-
-    return myArray;
-}
 
 int cargaSecuencialArray(int myArray[], int cantidad, char mensaje[])
 {
@@ -115,15 +103,15 @@ int cargaSecuencialArray(int myArray[], int cantidad, char mensaje[])
 int darPromedio(int myArray[], int cantidad)
 {
     int i;
-    float acumulador = 0;
+    int acumulador = 0;
     float promedio;
 
     for(i=0 ; i < cantidad ; i++)
     {
-        acumulador = myArray[i];
+        acumulador = acumulador + myArray[i];
     }
 
-    promedio = acumulador / 6;
+    promedio = (float)acumulador / cantidad;
     return promedio;
 }
 
