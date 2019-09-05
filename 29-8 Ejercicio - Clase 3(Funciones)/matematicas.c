@@ -1,21 +1,21 @@
 #include "matematicas.h"
 
-float suma(int num1, int num2)
+float suma(float num1, float num2)
 {
     return num1 + num2;
 }
 
-float resta(int num1, int num2)
+float resta(float num1, float num2)
 {
     return num1 - num2;
 }
 
-float dividir(int num1, int num2)
+float dividir(float num1, float num2)
 {
     return num1 / num2;
 }
 
-float multiplicar(int num1, int num2)
+float multiplicar(float num1, float num2)
 {
     return num1 * num2;
 }
@@ -27,11 +27,11 @@ void mostrar(float resultado)
 
 int pedirDato(int num1)
 {
-    scanf("%d", &num1);
+    scanf("%f", &num1);
     return num1;
 }
 
-void calcular(int num1, int num2, int operacion)
+void calcular(float num1, float num2, int operacion)
 {
     float resultado;
 

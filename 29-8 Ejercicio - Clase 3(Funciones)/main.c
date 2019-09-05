@@ -14,11 +14,11 @@ int main()
 
     printf("\nIngrese el primer numero: ");
 
-    int numero1 = pedirDato(numero1);
+    float numero1 = pedirDato(numero1);
 
     printf("\nIngrese el segundo numero: ");
 
-    int numero2 = pedirDato(numero2);
+    float numero2 = pedirDato(numero2);
 
     calcular(numero1,numero2,operacion);
 
