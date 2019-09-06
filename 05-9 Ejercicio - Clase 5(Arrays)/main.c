@@ -1,44 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
-void mostrarArray(int myArray[], int cantidad);
+#define C 6
 int darMaximo(int myArray[], int cantidad);
 int darMinimo(int myArray[], int cantidad);
-int inicializarArray(int myArray[], int cantidad);
+void inicializarArray(int myArray[], int cantidad);
 int cargaSecuencialArray(int myArray[], int cantidad, char mensaje[]);
-int darPromedio(int myArray[], int cantidad);
+float darPromedio(int myArray[], int cantidad);
 void OrdenarMenorMayor(int myArray[], int cantidad);
 void OrdenarMayorMenor(int myArray[], int cantidad);
+int contadorMaximos(int myArray[], int cantidad);
 
 int main()
 {
 
-    int listadoDeNumeros[6];
+    int listadoDeNumeros[C]=[10,14,2,3,14,14];
     int maximo;
     int minimo;
     float promedio;
 
+    /*cargaSecuencialArray(listadoDeNumeros, C, "Ingrese su edad : ");*/
 
-    cargaSecuencialArray(listadoDeNumeros, 6, "Ingrese su edad : ");
+    mostrarArray(listadoDeNumeros, C);
 
-    mostrarArray(listadoDeNumeros, 6);
+    promedio = darPromedio(listadoDeNumeros, C);
 
-    promedio = darPromedio(listadoDeNumeros, 6);
+    maximo = darMaximo(listadoDeNumeros, C);
 
-    maximo = darMaximo(listadoDeNumeros, 6);
-
-    minimo = darMinimo(listadoDeNumeros, 6);
+    minimo = darMinimo(listadoDeNumeros, C);
 
     printf("\nDe menor a mayor\n");
 
-    OrdenarMenorMayor(listadoDeNumeros, 6);
+    OrdenarMenorMayor(listadoDeNumeros, C);
 
-    mostrarArray(listadoDeNumeros, 6);
+    mostrarArray(listadoDeNumeros, C);
 
     printf("\nDe mayor a menor\n");
 
-    OrdenarMayorMenor(listadoDeNumeros, 6);
+    OrdenarMayorMenor(listadoDeNumeros, C);
 
-    mostrarArray(listadoDeNumeros, 6);
+    mostrarArray(listadoDeNumeros, C);
 
     printf("\nEl maximo es %d", maximo);
     printf("\nEl minimo es %d", minimo);
@@ -73,6 +73,9 @@ int darMaximo(int myArray[], int cantidad)
     return maximo;
 }
 
+
+
+
 int darMinimo(int myArray[], int cantidad)
 {
     int i;
@@ -97,10 +100,9 @@ int cargaSecuencialArray(int myArray[], int cantidad, char mensaje[])
         scanf("%d", &myArray[i]);
     }
 
-    return myArray;
 }
 
-int darPromedio(int myArray[], int cantidad)
+float darPromedio(int myArray[], int cantidad)
 {
     int i;
     int acumulador = 0;
@@ -111,7 +113,7 @@ int darPromedio(int myArray[], int cantidad)
         acumulador = acumulador + myArray[i];
     }
 
-    promedio = (float)acumulador / cantidad;
+    promedio = acumulador / cantidad;
     return promedio;
 }
 
@@ -125,12 +127,12 @@ void OrdenarMenorMayor(int myArray[], int cantidad)
     {
         for(j=i+1 ; j < cantidad ; j++)
         {
-         if(myArray[i] > myArray[j])
-         {
-             aux = myArray[i];
-             myArray[i]=myArray[j];
-             myArray[j]=aux;
-         }
+            if(myArray[i] > myArray[j])
+            {
+                aux = myArray[i];
+                myArray[i]=myArray[j];
+                myArray[j]=aux;
+            }
         }
     }
 
@@ -138,7 +140,7 @@ void OrdenarMenorMayor(int myArray[], int cantidad)
 
 void OrdenarMayorMenor(int myArray[], int cantidad)
 {
-   int i;
+    int i;
     int j;
     int aux;
 
@@ -146,12 +148,17 @@ void OrdenarMayorMenor(int myArray[], int cantidad)
     {
         for(j=i+1 ; j < cantidad ; j++)
         {
-         if(myArray[i] < myArray[j])
-         {
-             aux = myArray[i];
-             myArray[i]=myArray[j];
-             myArray[j]=aux;
-         }
+            if(myArray[i] < myArray[j])
+            {
+                aux = myArray[i];
+                myArray[i]=myArray[j];
+                myArray[j]=aux;
+            }
         }
     }
+}
+
+int contadorMaximos(int myArray[], int cantidad)
+{
+
 }
