@@ -17,6 +17,7 @@ int main()
     char nombre[15]="lautaro";
     char apellido[15]="lezama";
     char apellidoNombre[35];
+    int i;
     int largo;
 
    /* printf("Ingrese su nombre : ");
@@ -27,15 +28,25 @@ int main()
 
     gets(apellido); */
 
+    largo = strlen(apellidoNombre);
+
     strcat(apellidoNombre, apellido);
 
     strcat(apellidoNombre, ", ");
 
     strcat(apellidoNombre, nombre);
 
-    largo = strupr(apellidoNombre[15] - apellidoNombre[14]);
+    printf("\n%s", apellidoNombre);
 
-    printf("\n%s %d", apellidoNombre, largo);
+    for(i=0;i<largo;i++)
+    {
+        if (strcmp(apellidoNombre[i], "l")==0)
+        {
+            strupr(apellidoNombre[i]);
+        }
+    }
+
+     printf("\n%s", apellidoNombre);
 
 
 
