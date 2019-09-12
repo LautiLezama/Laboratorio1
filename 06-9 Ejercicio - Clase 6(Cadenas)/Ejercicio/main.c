@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 /*
     strlen
     strcpy
@@ -44,7 +45,7 @@ int main()
         {
             i ++;
             apellidoNombre[i] -=32;
-
+            break;
 
         }
 
