@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1568385082 source:d:\lezamaverde\laboratorio1\13-9 ejercicio - clase 8(estructuras)\main.c
+	"Alumnos.h"
+
+1568384840 source:d:\lezamaverde\laboratorio1\13-9 ejercicio - clase 8(estructuras)\alumnos.c
+	"Alumnos.h"
+
+1568384840 d:\lezamaverde\laboratorio1\13-9 ejercicio - clase 8(estructuras)\alumnos.h
+	<stdio.h>
+	<stdlib.h>
+
