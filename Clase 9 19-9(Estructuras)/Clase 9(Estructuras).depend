@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1568896453 source:d:\lezamaverde\laboratorio1\clase 9(estructuras)\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1568904841 source:d:\lezamaverde\laboratorio1\19-9 ejercicio - clase 9(estructuras)\persona.c
+	"persona.h"
+	<string.h>
+
+1568904556 d:\lezamaverde\laboratorio1\19-9 ejercicio - clase 9(estructuras)\persona.h
+	<stdio.h>
+
+1568904518 source:d:\lezamaverde\laboratorio1\19-9 ejercicio - clase 9(estructuras)\main.c
+	<stdlib.h>
+	"persona.h"
+
+1568904518 source:d:\lezamaverde\laboratorio1\clase 9 19-9(estructuras)\main.c
+	<stdlib.h>
+	"persona.h"
+
+1568904556 d:\lezamaverde\laboratorio1\clase 9 19-9(estructuras)\persona.h
+	<stdio.h>
+
+1568904841 source:d:\lezamaverde\laboratorio1\clase 9 19-9(estructuras)\persona.c
+	"persona.h"
+	<string.h>
+
