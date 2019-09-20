@@ -45,7 +45,7 @@ void cargarListadoDePersonas(ePersonas lista[], int cant)
     int i;
     for(i=0; i<cant; i++)
     {
-        pedirPersona(lista,i);
+        pedirPersona(lista,cant);
     }
 }
 
