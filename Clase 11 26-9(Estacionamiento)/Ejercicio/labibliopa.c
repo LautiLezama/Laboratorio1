@@ -70,6 +70,7 @@ int buscarPorPatente(sVehiculo listaAutitos[],int cant)
     int i;
     char patente[51];
     printf("\nIngresa la patente master : ");
+    fflush(stdin);
     gets(patente);
     for(i=0; i<cant; i++)
     {
@@ -159,10 +160,12 @@ void cobrarPorAuto(sVehiculo listV[],sPersona listP[], int cant)
     mostrarAutitos(listV,listP, cant);
     i = buscarPorPatente(listV, cant);
     int laPlata;
-    laPlata = listV[i].horaIngreso - listV[i].horaSalida;
+    laPlata = listV[i].horaSalida - listV[i].horaIngreso;
     laPlata = laPlata * 100;
-    printf("El total por su estadia es %d", laPlata);
+    printf("El total por su estadia es %d \n", laPlata);
 }
+
+void cobrarPorDueños(sVehiculo listV[],sPersona [])
 
 
 //ORDENAR POR PATENTES
