@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define A 4
-
 
 
 typedef struct
@@ -19,12 +17,12 @@ typedef struct
     sFecha fechaIngreso;
     int horaIngreso;
     int horaSalida;
-    int idDuenio;
+    int idAuto;
 } sVehiculo;
 
 typedef struct
 {
-    int id;
+    int idPersona;
     char nombre[51];
     sFecha fechaNac;
 
@@ -33,8 +31,11 @@ typedef struct
 void hardcodePersonas(sPersona [],int);
 void mostrarPersonas(sPersona [],int);
 void hardcodeoAutos(sVehiculo [],int);
-void mostrarAutitos(sVehiculo [],int);
+void mostrarAutitos(sVehiculo [],sPersona [],int);
 int buscarPorPatente(sVehiculo [],int);
-void mostrarUnAutito(sVehiculo);
+void mostrarUnAutito(sVehiculo, sPersona[], int);
 void mostrarUnaPersona(sPersona);
-int buscarIndicePersona(sPersona[], int, int);
+int buscarPersonaById(sPersona[], int);
+void mostrarAutosByDuenio(sVehiculo[],sPersona[],int,int);
+void mostrarDueniosAndAutos(sVehiculo [], sPersona[], int);
+void cobrarPorAuto(sVehiculo [],sPersona[], int);
