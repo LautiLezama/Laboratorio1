@@ -26,6 +26,7 @@ int inicializarAlumnos(sAlumno[], int);
 int buscarLibre(sAlumno[], int);
 int buscarAlumnoPorLegajo(sAlumno*, int, int);
 int darBajaPorLegajo(sAlumno*,int);
+int modificarAlumnoPorLegajo(sAlumno*, int);
 
 
 //Funciones para probar.

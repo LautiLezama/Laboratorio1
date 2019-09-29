@@ -142,11 +142,17 @@ int buscarAlumnoPorLegajo(sAlumno* lista, int cant, int legajo)
 {
     int i;
     int retorno = -1;
+
     if(lista!=NULL && cant > 0)
     {
         for(i=0; i<cant; i++)
         {
-            retorno = i;
+
+            if(lista[i].legajo == legajo)
+            {
+                retorno = i;
+                break;
+            }
         }
     }
     return retorno;
@@ -185,4 +191,51 @@ int darBajaPorLegajo(sAlumno* lista,int cant)
     }
 
     return retorno;
+}
+
+int modificarAlumnoPorLegajo(sAlumno* lista, int cant)
+{
+    int retorno = -1;
+    int legajo;
+    int index;
+    int opcion;
+
+    mostrarListadoDeAlumnos(lista, cant);
+
+    printf("Ingrese el legajo del alumno que desea modificar: ");
+    scanf("%d", &legajo);
+
+    index = buscarAlumnoPorLegajo(lista, cant, legajo);
+
+    if(index != -1)
+    {
+        mostrarAlumno(lista[index]);
+        printf("Que desea modificar?\n");
+        printf("1.Nombre.\n");
+        printf("2.Nota.\n");
+        scanf("%d",&opcion);
+
+        switch(opcion)
+        {
+        case 1:
+            printf("Ingrese el nombre: ");
+            fflush(stdin);
+            gets(lista[index].nombre);
+            retorno = 0;
+            break;
+        case 2:
+            printf("Ingrese la nota: ");
+            scanf("%d", &lista[index].nota);
+            retorno = 0;
+            break;
+        default:
+            printf("Opcion invalida.");
+            retorno = 1;
+            break;
+        }
+
+    }
+
+    return retorno;
+
 }

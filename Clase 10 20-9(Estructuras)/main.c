@@ -1,5 +1,5 @@
 #include "Alumnos.h"
-#define A 3
+#define A 5
 
 
 int main()
@@ -20,7 +20,8 @@ int main()
             printf("3. Ordenar alumnos por nombre \n");
             printf("4. Buscar alumno por legajo.\n");
             printf("5. Dar baja por legajo.\n");
-            printf("6. Salir.\n");
+            printf("6. Modificar los datos de algun alumno. \n");
+            printf("7. Salir.\n");
             printf("Elija una opcion : ");
             scanf("%d", &opcion);
 
@@ -71,12 +72,30 @@ int main()
 
                 }
                 break;
+            case 6:
+                retorno = modificarAlumnoPorLegajo(listaAlumno, A);
+                switch(retorno)
+                {
+                case -1:
+                    printf("No se encontro el legajo.\n");
+                    break;
+
+                case 0:
+                    printf("Alumno modificado.\n");
+                    break;
+
+                case 1:
+                    printf("Accion cancelada.\n");
+                    break;
+                }
+
+
 
             }
             system("pause");
             system("cls");
         }
-        while(opcion!=6);
+        while(opcion!=7);
 
     }
     else
