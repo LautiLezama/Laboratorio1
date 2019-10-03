@@ -39,3 +39,4 @@ int buscarPersonaById(sPersona[], int);
 void mostrarAutosByDuenio(sVehiculo[],sPersona[],int,int);
 void mostrarDueniosAndAutos(sVehiculo [], sPersona[], int);
 void cobrarPorAuto(sVehiculo [],sPersona[], int);
+void cobrarPorDuenio(sVehiculo [], sPersona[], int);

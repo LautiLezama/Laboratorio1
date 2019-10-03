@@ -50,6 +50,11 @@ int main()
             cobrarPorAuto(listaAutitos,listaPersonas,V);
             break;
 
+            case 5:
+
+        case 7:
+            break;
+
         default:
             printf("Opcion invalida.");
             break;
