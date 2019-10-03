@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # depslib dependency file v1.0
 1568386601 source:d:\lezamaverde\laboratorio1\13-9 ejercicio - clase 8(estructuras)\main.c
 	"Alumnos.h"
@@ -32,3 +33,28 @@
 1569089396 source:c:\users\lauta\desktop\facultad\laboratorio1\clase 10 20-9(estructuras)\main.c
 	"Alumnos.h"
 
+=======
+# depslib dependency file v1.0
+1568386601 source:d:\lezamaverde\laboratorio1\13-9 ejercicio - clase 8(estructuras)\main.c
+	"Alumnos.h"
+
+1568386613 source:d:\lezamaverde\laboratorio1\13-9 ejercicio - clase 8(estructuras)\alumnos.c
+	"Alumnos.h"
+
+1568386171 d:\lezamaverde\laboratorio1\13-9 ejercicio - clase 8(estructuras)\alumnos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1568991945 source:d:\lezamaverde\laboratorio1\clase 10 20-9(estructuras)\main.c
+	"Alumnos.h"
+
+1568990447 d:\lezamaverde\laboratorio1\clase 10 20-9(estructuras)\alumnos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1568991946 source:d:\lezamaverde\laboratorio1\clase 10 20-9(estructuras)\alumnos.c
+	"Alumnos.h"
+
+>>>>>>> 7ac7e8be558652aacd3eb6db8561a66079e493b1
