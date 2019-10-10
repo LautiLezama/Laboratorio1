@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1570726456 source:c:\users\alumno\desktop\parcial lautaro lezama 1 b\main.c
+	"utn.h"
+
+1570726155 c:\users\alumno\desktop\parcial lautaro lezama 1 b\utn.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1570726564 source:c:\users\alumno\desktop\parcial lautaro lezama 1 b\utn.c
+	"utn.h"
+
