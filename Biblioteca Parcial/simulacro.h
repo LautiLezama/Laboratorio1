@@ -34,7 +34,7 @@ typedef struct
 int enterInt(int);
 float enterFloat(float);
 char* enterString(char*);
-int onlyNumbers(int);
+int positivoInt(char []);
 int onlyLetters(char []);
 
 //Primer estructura

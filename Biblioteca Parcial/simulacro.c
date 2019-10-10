@@ -1,22 +1,28 @@
 #include "simulacro.h"
 
-int onlyNumbers(int num1)
+int positivoInt(char mensaje[])
 {
-    char snum[100];
+    char snum[10];
     int i;
-    int largo;
-    int r = 0;
-    itoa(num1, snum, 100);
-    largo = strlen(snum);
-
-    for(i=0;i<largo;i++)
+    int r;
+    do
     {
-        if(snum[i] < 48 || snum[i] > 57)
+        printf(mensaje);
+        fflush(stdin);
+        gets(snum);
+        for(i=0; snum[i]!='/0'; i++)
         {
-            r = -2;
-            return r;
+            if(snum[i] < 48 || snum[i] > 57)
+            {
+                printf("Ingrese un valor valido(Solo numeros positivos).");
+                r = -2;
+                break;
+            }
         }
+
     }
+    while(r==-2);
+        r=atoi(snum);
     return r;
 }
 
