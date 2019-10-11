@@ -14,7 +14,11 @@ int onlyLetters(char string1[])
     largo = strlen(string1);
     for(i=1; i<largo; i++)
     {
-        if(string1[i]==32)
+        if(string1[i]==32 || string1[i]==64)
+        {
+            continue;
+        }
+        if(string1[i]==64)
         {
             continue;
         }
@@ -324,14 +328,20 @@ int cargarReferi(sReferi list[],int cant,int idNumber)
 
         printf("Ingrese su sexo : ");
         getche(list[i].sexo);
-        while(list[i].sexo != 'f' && list[i].sexo != 'm')
-        {
-            printf("Sexo invalido, reingrese : ");
-            getche(list[i].sexo);
-        }
+
 
         printf("Ingrese su eMail : ");
+        fflush(stdin);
         gets(list[i].eMail);
+        r = onlyLetters(list[i].eMail);
+        while(r==-2)
+        {
+            printf("No es un email valido: ");
+            fflush(stdin);
+            gets(list[i].eMail);
+            r = onlyLetters(list[i].eMail);
+        }
+
 
         printf("Ingrese su fecha de nacimiento \n");
         list[i].fechaNacimiento.dia = positivoInt("Dia : ");

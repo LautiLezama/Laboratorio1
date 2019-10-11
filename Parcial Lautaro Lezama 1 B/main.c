@@ -45,7 +45,6 @@ int main()
                 {
                     printf("Equipo cargado.\n");
                     idEquipos ++;
-
                 }
                 else
                 {
