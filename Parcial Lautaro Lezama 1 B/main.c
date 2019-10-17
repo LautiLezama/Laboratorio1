@@ -220,6 +220,14 @@ int main()
                 }
                 break;
             case 12:
+                if(flagReferees(listReferees,R)==0)
+                {
+                    mostrarReferiConMasPartidos(listReferees,listPartidos,R,P);
+                }
+                else
+                {
+                    printf("No hay referees cargados.\n");
+                }
                 break;
             case 13:
                 if(flagJugadores(listJugadores, J)==0)

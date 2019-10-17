@@ -1047,6 +1047,9 @@ void promedioEdadesPorEquipo(sJugadores listJ[],sEquipos listE[],int cantJ, int 
     int flag = 0;
     for(i=0; i<cantE; i++)
     {
+        acumulador = 0;
+        contador = 0;
+        promedio = 0;
         for(j=0; j<cantJ; j++)
         {
             if(listE[i].codigo == listJ[j].codigoDeEquipo)
@@ -1058,20 +1061,60 @@ void promedioEdadesPorEquipo(sJugadores listJ[],sEquipos listE[],int cantJ, int 
         promedio = acumulador / contador;
         if(flag == 0 || promedio > maximoPromedio)
         {
-            maximoCodigo = listE[i].codigo;
+            maximoCodigo = i;
             maximoPromedio = promedio;
             flag = 1;
         }
-        acumulador = 0;
-        contador = 0;
-        promedio = 0;
     }
-    printf("El equipo mas joven es : \n");
-    for(i=0;i<cantE;i++)
+    printf("El equipo mas joven es %20s\n",listE[maximoCodigo].nombre);
+
+}
+
+int mostrarReferiConMasPartidos(sReferi listR[],sPartidos listP[],int cantR, int cantP)
+{
+    int i;
+    int j;
+    int contador;
+    int flag = 0;
+    int maxPartidos = 0;
+    int maxIndex;
+
+    for(i=0;i<cantR;i++)
     {
-        if(maximoCodigo == listE[i].codigo)
+        contador = 0;
+        if(listR[i].estado == OCUPADO)
         {
-            mostrarUnEquipo(listE[i]);
+            for(j=0;j<cantP;j++)
+            {
+                if(listP[j].estado == OCUPADO && listP[j].codigoDeReferi == listR[i].codigo)
+                {
+                    contador ++;
+                }
+            }
+        }
+        if(flag == 0 || contador > maxPartidos)
+        {
+            maxIndex = i;
+            maxPartidos = contador;
+            flag = 1;
         }
     }
+    printf("El referi con mas partidos dirigidos es %s %s \n\n",listR[maxIndex].nombre,listR[maxIndex].apellido);
+}
+
+int flagReferees(sReferi list[], int cant)
+{
+    int r = -1;
+    int i;
+
+    for(i=0; i<cant; i++)
+    {
+        if(list[i].estado == OCUPADO)
+        {
+            r = 0;
+            break;
+        }
+    }
+
+    return r;
 }

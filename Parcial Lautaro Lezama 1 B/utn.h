@@ -105,6 +105,8 @@ int cargarReferi(sReferi [], int, int);
 int buscarLibreReferees(sReferi [], int);
 void mostrarUnReferee(sReferi);
 void mostrarListadoDeReferees(sReferi [], int);
+int flagReferees(sReferi [], int);
+
 
 
 
