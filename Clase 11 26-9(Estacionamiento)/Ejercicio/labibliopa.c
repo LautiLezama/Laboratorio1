@@ -57,8 +57,9 @@ void mostrarPersonas(sPersona listaPersonas[], int cant)
 
 void mostrarAutitos(sVehiculo listaAutitos[],sPersona lista[], int cant)
 {
+
     int i;
-    printf("Autos con sus duenios: \n");
+    printf("  Patente \t Hora Ingreso \t Hora Salida \t Fecha Ingreso \n");
     for(i=0; i<cant; i++)
     {
         mostrarUnAutito(listaAutitos[i],lista,cant);
@@ -85,7 +86,7 @@ int buscarPorPatente(sVehiculo listaAutitos[],int cant)
 void mostrarUnAutito(sVehiculo unAutito, sPersona lista[],int cant)
 {
     int i;
-    printf("%8s \t %02d \t %02d \t %02d/%02d/%4d \t",unAutito.patente
+    printf("%8s \t %02d \t\t %02d \t\t %02d/%02d/%4d \t",unAutito.patente
                                          ,unAutito.horaIngreso
                                          ,unAutito.horaSalida
                                          ,unAutito.fechaIngreso.dia
@@ -165,12 +166,11 @@ void cobrarPorAuto(sVehiculo listV[],sPersona listP[], int cant)
     printf("El total por su estadia es %d \n", laPlata);
 }
 
-void cobrarPorDueños(sVehiculo listV[],sPersona [])
+void cobrarPorDuenio(sVehiculo listV[], sPersona listP[], int cant)
+{
 
+}
 
-//ORDENAR POR PATENTES
-//ORDENAR POR NOMBRE DEL DUEÑO
-//MOSTRAR VEHICULOS FIJATE DE HACERLO CON NOMBRE, TE ACORDAS PIBE.
 
 
 
