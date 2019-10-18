@@ -11,7 +11,7 @@ int main()
 
 
     printf("Ingrese un numero : ");
-    scanf("%d", puntero1);
+    scanf("%d", &unEntero);
 
 
     if(puntero1 != NULL)

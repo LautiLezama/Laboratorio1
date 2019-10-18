@@ -5,7 +5,7 @@
 
 typedef struct
 {
-    int a;
+    int ent;
     float b;
     char c;
 } sDato;
@@ -41,7 +41,7 @@ void cargarDatos(sDato* list,int cant)
     for(i=0;i<cant;i++)
     {
         printf("\nIngrese entero : ");
-        scanf("%d",&(list+i)->a);
+        scanf("%d",&(list+i)->ent);
         printf("Ingrese flotante : ");
         scanf("%f",&(list+i)->b);
         fflush(stdin);
@@ -58,7 +58,7 @@ void mostrarDatos(sDato* list, int cant)
     for(i=0; i<cant; i++)
     {
         printf("\n%d -- %f -- %c \n"
-               ,(list+i)->a
+               ,(list+i)->ent
                ,(list+i)->b
                ,(list+i)->c);
     }
