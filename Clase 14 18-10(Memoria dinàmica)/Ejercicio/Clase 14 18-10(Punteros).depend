@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1571399548 source:d:\lezamaverde\laboratorio1\clase 14 18-10(punteros)\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1571400797 source:d:\lezamaverde\laboratorio1\clase 14 18-10(memoria dinàmica)\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

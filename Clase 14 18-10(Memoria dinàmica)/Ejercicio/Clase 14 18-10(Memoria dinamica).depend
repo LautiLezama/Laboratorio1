@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1571411196 source:d:\lezamaverde\laboratorio1\clase 14 18-10(memoria dinàmica)\ejemplo teorico\main.c
+	"persona.h"
+
+1571411379 d:\lezamaverde\laboratorio1\clase 14 18-10(memoria dinàmica)\ejemplo teorico\persona.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1571410437 source:d:\lezamaverde\laboratorio1\clase 14 18-10(memoria dinàmica)\ejemplo teorico\persona.c
+	"persona.h"
+
