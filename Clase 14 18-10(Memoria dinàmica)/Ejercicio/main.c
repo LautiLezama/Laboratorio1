@@ -1,26 +1,35 @@
 #include "persona.h"
-#define A 5
+#define CANT 3
 
 
 
 int main()
 {
-    sPersona* listPersonas;
-    listPersonas = new_Persona_Parametros(100,40,1.87);
+    sPersona* listPersonas[CANT];
+    int i;
+    int legajo;
+    char sexo;
+    float altura;
+    sPersona* unaPersona;
+    for(i=0; i<CANT; i++)
+    {
+        unaPersona = new_Persona();
+        printf("Ingrese legajo : ");
+        scanf("%d",&legajo);
+        printf("Ingrese sexo : ");
+        sexo = getche();
+        printf("\n");
+        printf("Ingrese altura : ");
+        scanf("%f",&altura);
+        printf("\n\n");
+        unaPersona = new_Persona_Parametros(legajo,sexo,altura);
+        listPersonas[i]=unaPersona;
+    }
 
-    if(mostrarPersona(listPersonas)!=0)
+    for(i=0;i<CANT;i++)
     {
-        printf("\n\nNo se pudo mostrar.\n\n");
+        mostrarPersona(listPersonas[i]);
     }
-    if(deletePersona(listPersonas)==0)
-    {
-        printf("\nBorradisimo capo.\n");
-    }
-    else
-    {
-        printf("\nError al borrar.\n");
-    }
-
 
     return 0;
 }

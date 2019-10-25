@@ -10,14 +10,15 @@
 1571410437 source:d:\lezamaverde\laboratorio1\clase 14 18-10(memoria dinàmica)\ejemplo teorico\persona.c
 	"persona.h"
 
-1571411196 source:d:\lezamaverde\laboratorio1\clase 14 18-10(memoria dinàmica)\ejercicio\main.c
+1572007487 source:d:\lezamaverde\laboratorio1\clase 14 18-10(memoria dinàmica)\ejercicio\main.c
 	"persona.h"
 
-1571411379 d:\lezamaverde\laboratorio1\clase 14 18-10(memoria dinàmica)\ejercicio\persona.h
+1572007346 d:\lezamaverde\laboratorio1\clase 14 18-10(memoria dinàmica)\ejercicio\persona.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<conio.h>
 
-1571411384 source:d:\lezamaverde\laboratorio1\clase 14 18-10(memoria dinàmica)\ejercicio\persona.c
+1572007591 source:d:\lezamaverde\laboratorio1\clase 14 18-10(memoria dinàmica)\ejercicio\persona.c
 	"persona.h"
 

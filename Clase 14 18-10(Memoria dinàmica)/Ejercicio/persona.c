@@ -16,10 +16,9 @@ int mostrarPersona(sPersona* unaPersona)
     int r = -1;
     if(unaPersona != NULL)
     {
-        printf("La persona es : \n\n");
-        printf("%d -- %d -- %f \n",
+        printf("%d -- %c -- %f \n",
                unaPersona->legajo,
-               unaPersona->edad,
+               unaPersona->sexo,
                unaPersona->altura);
         r = 0;
     }
@@ -37,15 +36,35 @@ int deletePersona(sPersona* unaPersona)
     return r;
 }
 
-sPersona* new_Persona_Parametros(int legajo,int edad,float altura)
+sPersona* new_Persona_Parametros(int legajo,char sexo,float altura)
 {
     sPersona* unaPersona = new_Persona();
 
     if(unaPersona!=NULL)
     {
         unaPersona->legajo = legajo;
-        unaPersona->edad = edad;
+        unaPersona->sexo = sexo;
         unaPersona->altura = altura;
     }
     return unaPersona;
+}
+
+int setLegajo(sPersona* unaPersona, int legajo)
+{
+    int r = -1;
+    if(unaPersona != NULL && legajo>0)
+    {
+        unaPersona->legajo=legajo;
+        r = 0;
+    }
+    return r;
+}
+
+int getLegajo(sPersona* unaPersona)
+{
+    int legajo = -1;
+    if(unaPersona != NULL)
+    {
+        legajo = unaPersona->legajo;
+    }
 }

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
-#define A 50
+#define A 1
 #define LIBRE 0
 #define OCUPADO 1
 
@@ -39,7 +39,7 @@ int main()
         printf("2.ORDENAME A LOS PIBES.\n");
         printf("3.MOSTRAME A LOS PIBES.\n");
         printf("4.NOS VIMO AMIGO.\n");
-        printf("777.NO AMIGO NO TOQUES ESTO.\n");
+        printf("666.INVOCAS AL DIABLO CAPO.\n");
         printf("\nDALE ELEJI CAPO MAFIA : ");
         scanf("%d",&opcion);
 
@@ -53,7 +53,7 @@ int main()
             }
             else
             {
-                printf("\nNO HAY MAS PIBES MASTER.\n\n");
+                printf("\nNO HAY MAS ESPACIO TITAN.\n\n");
             }
             break;
         case 2:
@@ -79,7 +79,7 @@ int main()
             break;
         case 4:
             break;
-        case 777:
+        case 666:
             gets(opcion);
             break;
         default:
