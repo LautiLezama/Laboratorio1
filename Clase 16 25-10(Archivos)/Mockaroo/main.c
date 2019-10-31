@@ -22,7 +22,7 @@ int main()
     char apellido[50];
     char mail[50];
     char sueldo[50];
-    int i;
+    int i=0;
 
     pArchivo = fopen("empleados.csv","r");
     fscanf(pArchivo,"%[^,],%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,apellido,mail,sueldo);
@@ -45,6 +45,7 @@ int main()
     {
         printf("%d--%s--%s--%s--%f \n",listEmpleados[i].id,listEmpleados[i].nombre,listEmpleados[i].apellido,listEmpleados[i].mail,listEmpleados[i].sueldo);
     }
+
 
     return 0;
 }
