@@ -13,7 +13,6 @@
 int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
 {
     Employee* listEmployees;
-    int i = 0;
     char id[50];
     char nombre[50];
     char horasTrabajadas[50];
@@ -26,10 +25,10 @@ int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
     {
         listEmployees = employee_new();
         fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
-        listEmployees->id = atoi(id);
-        listEmployees->horasTrabajadas = atoi(horasTrabajadas);
-        strcpy(listEmployees->nombre,nombre);
-        listEmployees->sueldo = atoi(sueldo);
+        employee_setId(listEmployees,atoi(id));
+        employee_setHorasTrabajadas(listEmployees,atoi(horasTrabajadas));
+        employee_setSueldo(listEmployees,atoi(sueldo));
+        employee_setNombre(listEmployees,nombre);
         ll_add(pArrayListEmployee, listEmployees);
 
     }
@@ -51,6 +50,31 @@ int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
  */
 int parser_EmployeeFromBinary(FILE* pFile, LinkedList* pArrayListEmployee)
 {
+
+    Employee* listEmployees;
+    char id[50];
+    char nombre[50];
+    char horasTrabajadas[50];
+    char sueldo[50];
+    if(pFile == NULL)
+    {
+        return -1;
+    }
+    do
+    {
+        listEmployees = employee_new();
+        fread(id,sizeof(char),1,pFile);
+        fread(nombre,sizeof(char),1,pFile);
+        fread(horasTrabajadas,sizeof(char),1,pFile);
+        fread(sueldo,sizeof(char),1,pFile);
+        employee_setId(listEmployees,atoi(id));
+        employee_setHorasTrabajadas(listEmployees,atoi(horasTrabajadas));
+        employee_setSueldo(listEmployees,atoi(sueldo));
+        employee_setNombre(listEmployees,nombre);
+        ll_add(pArrayListEmployee, listEmployees);
+
+    }
+    while(!feof(pFile));
 
     return 1;
 }

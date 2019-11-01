@@ -13,6 +13,11 @@
  */
 int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
+    FILE* pArchivo;
+    pArchivo = fopen(path,"r");
+    parser_EmployeeFromText(pArchivo,pArrayListEmployee);
+    fclose(pArchivo);
+
     return 1;
 }
 
@@ -25,6 +30,10 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
+    FILE* pArchivo;
+    pArchivo = fopen(path,"rb");
+    parser_EmployeeFromText(pArchivo,pArrayListEmployee);
+    fclose(pArchivo);
     return 1;
 }
 
@@ -37,6 +46,18 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
+    char nombre[50];
+    int sueldo;
+    int horasTrabajadas;
+
+    printf("Ingrese el nombre del empleado : ");
+    gets(nombre);
+
+    printf("Ingrese las horas trabajadas del empleado : ");
+    scanf("%d",&horasTrabajadas);
+
+    printf("Ingrese el sueldo del empleado : ");
+    scanf("%d",&horasTrabajadas);
     return 1;
 }
 

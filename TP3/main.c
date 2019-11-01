@@ -29,29 +29,29 @@ int main()
     char* punteroNombres[51];
     int option = 0;
     int i = 0;
-    pArchivo = fopen("data.csv","r");
+    //pArchivo = fopen("data.csv","r");
 
 
-   /** Empleado = employee_new();
-    Empleado = employee_newParametros("100","Maria","10");
-    employee_setSueldo(Empleado,1000);
-    ll_add(listaEmpleados,Empleado);
+    /** Empleado = employee_new();
+     Empleado = employee_newParametros("100","Maria","10");
+     employee_setSueldo(Empleado,1000);
+     ll_add(listaEmpleados,Empleado);
 
-    for(i=0; i<ll_len(listaEmpleados); i++)
-    {
-        aux = (Employee*)ll_get(listaEmpleados, i);
-        printf("%d--%s--%d--%d \n",employee_getId(aux,punteroInt),employee_getNombre(aux,punteroNombres),employee_getHorasTrabajadas(aux,punteroInt),employee_getSueldo(aux, punteroInt));
-    }
+     for(i=0; i<ll_len(listaEmpleados); i++)
+     {
+         aux = (Employee*)ll_get(listaEmpleados, i);
+         printf("%d--%s--%d--%d \n",employee_getId(aux,punteroInt),employee_getNombre(aux,punteroNombres),employee_getHorasTrabajadas(aux,punteroInt),employee_getSueldo(aux, punteroInt));
+     }
 
-    ll_sort(listaEmpleados,comparaPorNombre,1);
+     ll_sort(listaEmpleados,comparaPorNombre,1);
 
-    printf("\nListado ordenado \n");
+     printf("\nListado ordenado \n");
 
-    for(i=0; i<ll_len(listaEmpleados); i++)
-    {
-        aux = (Employee*)ll_get(listaEmpleados, i);
-        printf("%d--%s--%d--%d \n",employee_getId(aux,punteroInt),employee_getNombre(aux,punteroNombres),employee_getHorasTrabajadas(aux,punteroInt),employee_getSueldo(aux, punteroInt));
-    } **/
+     for(i=0; i<ll_len(listaEmpleados); i++)
+     {
+         aux = (Employee*)ll_get(listaEmpleados, i);
+         printf("%d--%s--%d--%d \n",employee_getId(aux,punteroInt),employee_getNombre(aux,punteroNombres),employee_getHorasTrabajadas(aux,punteroInt),employee_getSueldo(aux, punteroInt));
+     } **/
 
 
 
@@ -75,20 +75,38 @@ int main()
         printf("8. Guardar los datos de los empleados en el archivo data.csv (modo texto).\n");
         printf("9. Guardar los datos de los empleados en el archivo data.csv (modo binario).\n");
         printf("10. Salir.\n");
+        printf("777.TEST CASE\n");
         printf("Elija una opcion : ");
         scanf("%d",&option);
         switch(option)
         {
         case 1:
             controller_loadFromText("data.csv",listaEmpleados);
+            printf("\Datos cargados a modo texto de forma exitosa.\n\n");
+            break;
+        case 2:
+            controller_loadFromBinary("data.csv",listaEmpleados);
+            printf("\nDatos cargados a modo binario de forma exitosa.\n\n");
+            break;
+        case 3:
+
+            break;
+        case 777:
+            for(i=0; i<ll_len(listaEmpleados); i++)
+            {
+                aux = (Employee*)ll_get(listaEmpleados, i);
+                printf("%d--%s--%d--%d \n",employee_getId(aux,punteroInt),employee_getNombre(aux,punteroNombres),employee_getHorasTrabajadas(aux,punteroInt),employee_getSueldo(aux, punteroInt));
+            }
             break;
         default:
             printf("\nOpcion invalida.\n");
             break;
         }
+        system("pause");
+        system("cls");
     }
     while(option != 10);
 
-    fclose(pArchivo);
+    //fclose(pArchivo);
     return 0;
 }
