@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1572013820 source:d:\lezamaverde\laboratorio1\clase 16 25-10(archivos)\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1572014494 source:d:\lezamaverde\laboratorio1\clase 16 25-10(archivos)\archivos teoria\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

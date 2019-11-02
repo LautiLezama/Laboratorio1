@@ -18,13 +18,18 @@ int main()
             printf("%d \n",*(miVector+x));
         }
 
-        miVector = (int*)realloc(miVector,sizeof(int)*(tam-3));
+        auxVector = (int*)realloc(miVector,sizeof(int)*(tam+3));
 
+<<<<<<< HEAD
         printf("\nCon menos memoria \n\n");
         for(x=0; x<tam-3; x++) //Se continuan los for.
+=======
+        printf("\nCon mas memoria \n\n");
+        //<miVector = auxVector;
+        for(x=0; x<tam+3; x++) //Se continuan los for.
+>>>>>>> 929fa46a89c505973fccb4895a169ef11eb2d6f7
         {
             *(miVector+x) = x+1;
-
             printf("%d \n",*(miVector+x));
         }
 
