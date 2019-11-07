@@ -20,7 +20,7 @@ int main()
     fread(a,sizeof(int),3,pArchive);
     for(i=0;i<3;i++)
     {
-        printf("%d \n", a[i]); //Estas mostrando los numeros del archivo, no del codigo.
+        printf("%d \n", a[i]); ///Estas mostrando los numeros del archivo, no del codigo.
     }
 
 
