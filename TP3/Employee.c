@@ -1,5 +1,6 @@
 #include "Employee.h"
 
+
 Employee* employee_new()
 {
     return (Employee*)(malloc(sizeof(Employee)));
@@ -10,9 +11,9 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
     Employee* oneEmployee = employee_new();
     if(oneEmployee!=NULL)
     {
-        oneEmployee->id = atoi(idStr);
-        strcpy(oneEmployee->nombre,nombreStr);
-        oneEmployee->horasTrabajadas = atoi(horasTrabajadasStr);
+        employee_setId(oneEmployee,atoi(idStr));
+        employee_setNombre(oneEmployee,nombreStr);
+        employee_setHorasTrabajadas(oneEmployee,atoi(horasTrabajadasStr));
     }
     return oneEmployee;
 }
@@ -104,7 +105,59 @@ int comparaPorNombre(void* p1, void* p2)
 
 }
 
-void incrementarId(int* ultimoId)
+int employee_findById(Employee* listEmployees,LinkedList* pArrayListEmployee)
 {
-    *ultimoId = *ultimoId + 1;
+    int i;
+    int id;
+    int r = -1;
+    printf("Ingrese el ID del empleado : ");
+    scanf("%d",&id);
+
+    for(i=0;i<ll_len(pArrayListEmployee);i++)
+    {
+       listEmployees = ll_get(pArrayListEmployee,i);
+       if(employee_getId(listEmployees,&id)==id)
+       {
+           return i;
+       }
+    }
+    return r;
+}
+
+int comparaPorSueldosAscendente(void* p1, void* p2)
+{
+    Employee* empleado1 = (Employee*)p1;
+    Employee* empleado2 = (Employee*)p2;
+    return (empleado1->sueldo > empleado2->sueldo);
+}
+
+int comparaPorSueldosDescendente(void* p1, void* p2)
+{
+    Employee* empleado1 = (Employee*)p1;
+    Employee* empleado2 = (Employee*)p2;
+    return (empleado1->sueldo < empleado2->sueldo);
+}
+
+int comparaPorHorasAscendente(void* p1, void* p2)
+{
+    Employee* empleado1 = (Employee*)p1;
+    Employee* empleado2 = (Employee*)p2;
+    return (empleado1->horasTrabajadas > empleado2->horasTrabajadas);
+}
+
+int comparaPorHorasDescendente(void* p1, void* p2)
+{
+    Employee* empleado1 = (Employee*)p1;
+    Employee* empleado2 = (Employee*)p2;
+    return (empleado1->horasTrabajadas < empleado2->horasTrabajadas);
+}
+
+void employee_showOneEmployee(LinkedList* pArrayListEmployee,int index)
+{
+    Employee* oneEmployee;
+    int punteroInt;
+    char* punteroNombres[51];
+    oneEmployee = (Employee*)ll_get(pArrayListEmployee, index);
+    printf("\n%d--%s--%d--%d \n\n",employee_getId(oneEmployee,&punteroInt),employee_getNombre(oneEmployee,punteroNombres),employee_getHorasTrabajadas(oneEmployee,&punteroInt),employee_getSueldo(oneEmployee, &punteroInt));
+
 }

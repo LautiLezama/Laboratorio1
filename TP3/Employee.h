@@ -1,6 +1,9 @@
 #ifndef employee_H_INCLUDED
 #define employee_H_INCLUDED
+#include "LinkedList.h"
 #include <string.h>
+#include <stdio.h>
+#include <conio.h>
 typedef struct
 {
     int id;
@@ -26,6 +29,11 @@ int employee_setSueldo(Employee* this,int sueldo);
 int employee_getSueldo(Employee* this,int* sueldo);
 
 int comparaPorNombre(void* , void* );
-void incrementarId(int*);
+int comparaPorSueldosAscendente(void* , void*);
+int comparaPorSueldosDescendente(void* , void*);
+int comparaPorHorasDescendente(void* , void*);
+int comparaPorHorasAscendente(void* , void*);
+int employee_findById(Employee*,LinkedList*);
+void employee_showOneEmployee(LinkedList*,int);
 
 #endif // employee_H_INCLUDED

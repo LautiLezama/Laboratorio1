@@ -21,50 +21,10 @@
 
 int main()
 {
-    FILE* pArchivo;
     LinkedList* listaEmpleados = ll_newLinkedList();
-    Employee* listEmployees;
-    Employee* Empleado;
-    Employee* aux;
-    int* punteroInt;
-    char* punteroNombres[51];
     int option = 0;
-    int i = 0;
-    //pArchivo = fopen("data.csv","r");
-
-
-    /** Empleado = employee_new();
-     Empleado = employee_newParametros("100","Maria","10");
-     employee_setSueldo(Empleado,1000);
-     ll_add(listaEmpleados,Empleado);
-
-     for(i=0; i<ll_len(listaEmpleados); i++)
-     {
-         aux = (Employee*)ll_get(listaEmpleados, i);
-         printf("%d--%s--%d--%d \n",employee_getId(aux,punteroInt),employee_getNombre(aux,punteroNombres),employee_getHorasTrabajadas(aux,punteroInt),employee_getSueldo(aux, punteroInt));
-     }
-
-     ll_sort(listaEmpleados,comparaPorNombre,1);
-
-     printf("\nListado ordenado \n");
-
-     for(i=0; i<ll_len(listaEmpleados); i++)
-     {
-         aux = (Employee*)ll_get(listaEmpleados, i);
-         printf("%d--%s--%d--%d \n",employee_getId(aux,punteroInt),employee_getNombre(aux,punteroNombres),employee_getHorasTrabajadas(aux,punteroInt),employee_getSueldo(aux, punteroInt));
-     } **/
-
-
-
-
-
-
-
-
-
-
-
-
+    int r;
+    int flag = 0;
 
     do
     {
@@ -78,29 +38,112 @@ int main()
         printf("8. Guardar los datos de los empleados en el archivo data.csv (modo texto).\n");
         printf("9. Guardar los datos de los empleados en el archivo data.csv (modo binario).\n");
         printf("10. Salir.\n");
-        printf("777.TEST CASE\n");
         printf("Elija una opcion : ");
         scanf("%d",&option);
         switch(option)
         {
         case 1:
-            controller_loadFromText("data.csv",listaEmpleados);
-            printf("\Datos cargados a modo texto de forma exitosa.\n\n");
+            r = controller_loadFromText("data.csv",listaEmpleados);
+            if(r==0)
+            {
+                printf("\nDatos cargados a modo texto de forma exitosa.\n\n");
+                flag = 1;
+            }
+            else
+            {
+                printf("\n\nNo se pudieron cargar los datos.\n\n");
+            }
             break;
         case 2:
             controller_loadFromBinary("data.csv",listaEmpleados);
             printf("\nDatos cargados a modo binario de forma exitosa.\n\n");
+            flag = 1;
             break;
         case 3:
-            controller_addEmployee(listaEmpleados);
-            break;
-        case 777:
-            for(i=1; i<ll_len(listaEmpleados); i++)
+            if(flag == 1)
             {
-                aux = (Employee*)ll_get(listaEmpleados, i);
-                printf("%d--%s--%d--%d \n",employee_getId(aux,punteroInt),employee_getNombre(aux,punteroNombres),employee_getHorasTrabajadas(aux,punteroInt),employee_getSueldo(aux, &punteroInt));
+                controller_addEmployee(listaEmpleados);
+            }
+            else
+            {
+                printf("\n\nLos datos no fueron cargados todavia.\n\n");
             }
             break;
+        case 4:
+            if(flag == 1)
+            {
+                r = controller_editEmployee(listaEmpleados);
+                if(r==0)
+                {
+                    printf("\n\nModificacion exitosa.\n\n");
+                }
+                else if(r==-1)
+                {
+                    printf("\n\nNo se encontro al empleado.\n\n");
+                }
+                else
+                {
+                    printf("\n\nNo ha elegido ninguna opcion disponible.\n\n");
+                }
+            }
+            else
+            {
+                printf("\n\nLos datos no fueron cargados todavia.\n\n");
+            }
+
+            break;
+        case 5:
+            if(flag == 1)
+            {
+                r = controller_removeEmployee(listaEmpleados);
+                if(r==0)
+                {
+                    printf("\n\nBaja exitosa.\n\n");
+                }
+                else if(r==-1)
+                {
+                    printf("\n\nNo se encontro al empleado.\n\n");
+                }
+                else
+                {
+                    printf("\n\nAccion cancelada.\n\n");
+                }
+            }
+            else
+            {
+                printf("\n\nLos datos no fueron cargados todavia.\n\n");
+            }
+            break;
+        case 6:
+            if(flag == 1)
+            {
+                controller_ListEmployee(listaEmpleados);
+            }
+            else
+            {
+                printf("\n\nLos datos no fueron cargados todavia.\n\n");
+            }
+            break;
+        case 7:
+            if(flag == 1)
+            {
+                r = controller_sortEmployee(listaEmpleados);
+                if(r==0)
+                {
+                    printf("\n\nEl listado fue ordenado exitosamente.\n\n");
+                }
+                else
+                {
+                    printf("\n\nNo ha elegido una opcion disponible\n\n");
+                }
+            }
+            else
+            {
+                printf("\n\nLos datos no fueron cargados todavia.\n\n");
+            }
+
+            break;
+
         default:
             printf("\nOpcion invalida.\n");
             break;
