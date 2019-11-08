@@ -1,4 +1,5 @@
 #include "Employee.h"
+#include <malloc.h>
 
 
 Employee* employee_new()
@@ -33,9 +34,9 @@ int employee_getId(Employee* this,int* id)
 {
     if(this != NULL)
     {
-        id = this->id;
+        *id = this->id;
     }
-    return id;
+    return *id;
 }
 
 int employee_setNombre(Employee* this,char* nombre)
@@ -72,9 +73,9 @@ int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
 {
     if(this != NULL)
     {
-        horasTrabajadas = this->horasTrabajadas;
+        *horasTrabajadas = this->horasTrabajadas;
     }
-    return horasTrabajadas;
+    return *horasTrabajadas;
 }
 
 int employee_setSueldo(Employee* this,int sueldo)
@@ -92,9 +93,9 @@ int employee_getSueldo(Employee* this,int* sueldo)
 {
     if(this != NULL)
     {
-        sueldo = this->sueldo;
+        *sueldo = this->sueldo;
     }
-    return sueldo;
+    return  *sueldo;
 }
 
 int comparaPorNombre(void* p1, void* p2)
@@ -108,6 +109,7 @@ int comparaPorNombre(void* p1, void* p2)
 int employee_findById(Employee* listEmployees,LinkedList* pArrayListEmployee)
 {
     int i;
+    int idEmployee;
     int id;
     int r = -1;
     printf("Ingrese el ID del empleado : ");
@@ -116,7 +118,8 @@ int employee_findById(Employee* listEmployees,LinkedList* pArrayListEmployee)
     for(i=0;i<ll_len(pArrayListEmployee);i++)
     {
        listEmployees = ll_get(pArrayListEmployee,i);
-       if(employee_getId(listEmployees,&id)==id)
+       employee_getId(listEmployees,&idEmployee);
+       if(idEmployee==id)
        {
            return i;
        }
@@ -154,10 +157,17 @@ int comparaPorHorasDescendente(void* p1, void* p2)
 
 void employee_showOneEmployee(LinkedList* pArrayListEmployee,int index)
 {
-    Employee* oneEmployee;
-    int punteroInt;
-    char* punteroNombres[51];
-    oneEmployee = (Employee*)ll_get(pArrayListEmployee, index);
-    printf("\n%d--%s--%d--%d \n\n",employee_getId(oneEmployee,&punteroInt),employee_getNombre(oneEmployee,punteroNombres),employee_getHorasTrabajadas(oneEmployee,&punteroInt),employee_getSueldo(oneEmployee, &punteroInt));
+    Employee* aux;
+    int id;
+    int sueldo;
+    int horasTrabajadas;
+    char nombre[51];
+
+    aux = (Employee*)ll_get(pArrayListEmployee, index);
+    employee_getId(aux, &id);
+    employee_getNombre(aux,&nombre);
+    employee_getSueldo(aux,&sueldo);
+    employee_getHorasTrabajadas(aux, &horasTrabajadas);
+    printf("%d--%s--%d--%d\n",id,nombre,sueldo,horasTrabajadas);
 
 }

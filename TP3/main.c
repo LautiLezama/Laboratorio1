@@ -55,7 +55,7 @@ int main()
             }
             break;
         case 2:
-            controller_loadFromBinary("data.csv",listaEmpleados);
+            controller_loadFromBinary("data.bin",listaEmpleados);
             printf("\nDatos cargados a modo binario de forma exitosa.\n\n");
             flag = 1;
             break;
@@ -143,7 +143,15 @@ int main()
             }
 
             break;
+        case 8:
+            controller_saveAsText("data.csv",listaEmpleados);
+            break;
+        case 9:
+            controller_saveAsBinary("data.bin", listaEmpleados);
+            break;
 
+        case 10:
+            break;
         default:
             printf("\nOpcion invalida.\n");
             break;

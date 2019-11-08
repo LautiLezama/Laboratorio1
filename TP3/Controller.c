@@ -59,7 +59,7 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
 
     largo = ll_len(pArrayListEmployee);
     aux = (Employee*)ll_get(pArrayListEmployee, largo-1);
-    id = employee_getId(aux,id);
+    employee_getId(aux,&id);
 
     employee_setId(oneEmployee, id+1);
 
@@ -178,13 +178,9 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
     int i;
-    Employee* aux;
-    int punteroInt;
-    char* punteroNombres[51];
     for(i=1; i<ll_len(pArrayListEmployee); i++)
     {
-        aux = (Employee*)ll_get(pArrayListEmployee, i);
-        printf("%d--%s--%d--%d \n",employee_getId(aux,&punteroInt),employee_getNombre(aux,punteroNombres),employee_getHorasTrabajadas(aux,&punteroInt),employee_getSueldo(aux, &punteroInt));
+employee_showOneEmployee(pArrayListEmployee,i);
     }
     return 1;
 }
@@ -279,7 +275,28 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
 {
-    return 1;
+    FILE* pFile;
+    Employee* listEmployees;
+    int r = 0;
+    int i;
+    int id;
+    int sueldo;
+    int horasTrabajadas;
+    char nombre[51];
+    pFile = fopen(path, "w");
+    for(i=0;i<ll_len(pArrayListEmployee);i++)
+    {
+    listEmployees = (Employee*)ll_get(pArrayListEmployee,i);
+   employee_getId(listEmployees, &id);
+    employee_getNombre(listEmployees,&nombre);
+    employee_getSueldo(listEmployees,&sueldo);
+    employee_getHorasTrabajadas(listEmployees, &horasTrabajadas);
+    fprintf(pFile,"%d,%s,%d,%d\n",id,nombre,sueldo,horasTrabajadas);
+    }
+
+    fclose(pFile);
+    return r;
+
 }
 
 /** \brief Guarda los datos de los empleados en el archivo data.csv (modo binario).
@@ -291,6 +308,20 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
  */
 int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
 {
-    return 1;
+    FILE* pFile;
+    Employee* listEmployees;
+    int r = 0;
+    int i;
+    pFile = fopen(path, "wb");
+    for(i=0;i<ll_len(pArrayListEmployee);i++)
+    {
+
+        listEmployees = (Employee*)ll_get(pArrayListEmployee,i);
+        //employee_showOneEmployee(pArrayListEmployee, i);
+        fwrite(listEmployees,sizeof(Employee),1,pFile);
+    }
+
+    fclose(pFile);
+    return r;
 }
 
