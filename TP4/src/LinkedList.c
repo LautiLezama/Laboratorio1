@@ -248,8 +248,17 @@ int ll_remove(LinkedList* this,int index)
 int ll_clear(LinkedList* this)
 {
     int returnAux = -1;
+    int i;
+    void* aux;
     if(this != NULL)
-
+    {
+        for(i=0;i<ll_len(this);i++)
+        {
+            aux = ll_get(this,i);
+            aux = ll_remove(this,i);
+        }
+        returnAux = 0;
+    }
     return returnAux;
 }
 
@@ -263,9 +272,22 @@ int ll_clear(LinkedList* this)
  */
 int ll_deleteLinkedList(LinkedList* this)
 {
-    int returnAux = -1;
 
+    int returnAux = -1;
+    int i;
+    void* aux;
+    if(this != NULL)
+    {
+        for(i=0;i<=ll_len(this);i++)
+        {
+            aux = ll_get(this,i);
+            aux = ll_remove(this,i);
+        }
+        returnAux = 0;
+    }
     return returnAux;
+
+
 }
 
 /** \brief Busca el indice de la primer ocurrencia del elemento pasado como parametro
@@ -279,13 +301,13 @@ int ll_deleteLinkedList(LinkedList* this)
 int ll_indexOf(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
-    void* pNode;
+    void* aux;
     int i;
 
         for(i=0; i<ll_len(this); i++)
         {
-            pNode = ll_get(this,i);
-            if(pElement == pNode)
+            aux = ll_get(this,i);
+            if(pElement == aux)
             {
                 returnAux = i;
             }
