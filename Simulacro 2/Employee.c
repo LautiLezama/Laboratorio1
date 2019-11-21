@@ -169,18 +169,5 @@ void employee_showOneEmployee(LinkedList* pArrayListEmployee,int index)
     employee_getSueldo(aux,&sueldo);
     employee_getHorasTrabajadas(aux, &horasTrabajadas);
     printf("%d--%s--%d--%d\n",id,nombre,sueldo,horasTrabajadas);
-}
-
-int filtrarPorSueldo(void* p1)
-{
-    Employee* oneEmployee = (Employee*)p1;
-    if(oneEmployee->sueldo > 12000)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
 
 }

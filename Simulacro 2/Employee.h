@@ -7,7 +7,7 @@
 typedef struct
 {
     int id;
-    char nombre[128];
+    char nombre[2];
     int horasTrabajadas;
     int sueldo;
 }Employee;
@@ -35,6 +35,5 @@ int comparaPorHorasDescendente(void* , void*);
 int comparaPorHorasAscendente(void* , void*);
 int employee_findById(Employee*,LinkedList*);
 void employee_showOneEmployee(LinkedList*,int);
-int filtrarPorSueldo(void*);
 
 #endif // employee_H_INCLUDED

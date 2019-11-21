@@ -360,12 +360,3 @@ int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
     return r;
 }
 
-LinkedList* controller_filterEmployee(LinkedList* pArrayListEmployee)
-{
-    LinkedList* listaFiltrada = NULL;
-    printf("\n\nSolo vas a poder filtrar sueldo porque me pinto\n\n");
-    listaFiltrada = ll_filter(pArrayListEmployee,filtrarPorSueldo);
-    return listaFiltrada;
-}
-
-

@@ -22,7 +22,6 @@
 int main()
 {
     LinkedList* listaEmpleados = ll_newLinkedList();
-    LinkedList* listaFiltrada;
     int option = 0;
     int r;
     int flag = 0;
@@ -39,7 +38,6 @@ int main()
         printf("8. Guardar los datos de los empleados en el archivo data.csv (modo texto).\n");
         printf("9. Guardar los datos de los empleados en el archivo data.csv (modo binario).\n");
         printf("10. Salir.\n");
-        printf("777.Filter test. \n");
         printf("Elija una opcion : ");
         scanf("%d",&option);
         switch(option)
@@ -170,12 +168,6 @@ int main()
             break;
 
         case 10:
-            break;
-        case 777:
-            listaFiltrada = controller_filterEmployee(listaEmpleados);
-            printf("\n\nAhora te voy a mostrar la lista filtrada, listo capo?\n\n");
-            system("pause");
-            controller_ListEmployee(listaFiltrada);
             break;
         default:
             printf("\nOpcion invalida.\n");
