@@ -72,7 +72,7 @@ int sGetChar(Employee* this,char* char1)
 /////////////
 /////////////
 
-void employee_showOneEmployee(LinkedList* pArrayListEmployee,int index)
+/*void employee_showOneEmployee(LinkedList* pArrayListEmployee,int index)
 {
     Employee* aux;
     int id;
@@ -86,7 +86,7 @@ void employee_showOneEmployee(LinkedList* pArrayListEmployee,int index)
     employee_getSueldo(aux,&sueldo);
     employee_getHorasTrabajadas(aux, &horasTrabajadas);
     printf("%d--%s--%d--%d\n",id,nombre,sueldo,horasTrabajadas);
-}
+}*/
 
 /////////////
 /////////////
@@ -94,7 +94,7 @@ void employee_showOneEmployee(LinkedList* pArrayListEmployee,int index)
 /////////////
 /////////////
 
-int filtrarPorSueldo(void* p1)
+/*int filtrar(void* p1)
 {
     Employee* oneEmployee = (Employee*)p1;
     if(oneEmployee->sueldo == 12000)
@@ -105,70 +105,36 @@ int filtrarPorSueldo(void* p1)
     {
         return 0;
     }
-}
+}*/
 
 /////////////
 /////////////
-/////////////
+///////////// COMPARACIONES
 /////////////
 /////////////
 
-
-int comparaPorNombre(void* p1, void* p2)
+/*int compararInts(void* p1, void* p2)
 {
     Employee* empleado1 = (Employee*)p1;
     Employee* empleado2 = (Employee*)p2;
-    return strcmp(empleado1->nombre,empleado2->nombre);
+    return intCmp(empleado1->CAMBIAR,empleado2->CAMBIAR);
 
 }
 
-int comparaPorSueldos(void* p1, void* p2)
+int compararChars(void* p1, void* p2)
 {
     Employee* empleado1 = (Employee*)p1;
     Employee* empleado2 = (Employee*)p2;
-    return intCmp(empleado1->sueldo,empleado2->sueldo);
+    return strcmp(empleado1->CAMBIAR,empleado2->CAMBIAR);
+}*/
 
-}
+/////////////
+/////////////
+/////////////
+/////////////
+/////////////
 
-int comparaPorHorasTrabajadas(void* p1, void* p2)
-{
-    Employee* empleado1 = (Employee*)p1;
-    Employee* empleado2 = (Employee*)p2;
-    return intCmp(empleado1->horasTrabajadas,empleado2->horasTrabajadas);
-}
-
-
-
-void employee_showOneEmployee(LinkedList* pArrayListEmployee,int index)
-{
-    Employee* aux;
-    int id;
-    int sueldo;
-    int horasTrabajadas;
-    char nombre[51];
-
-    aux = (Employee*)ll_get(pArrayListEmployee, index);
-    employee_getId(aux, &id);
-    employee_getNombre(aux,&nombre);
-    employee_getSueldo(aux,&sueldo);
-    employee_getHorasTrabajadas(aux, &horasTrabajadas);
-    printf("%d--%s--%d--%d\n",id,nombre,sueldo,horasTrabajadas);
-}
-
-int filtrarPorSueldo(void* p1)
-{
-    Employee* oneEmployee = (Employee*)p1;
-    if(oneEmployee->sueldo == 12000)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
-}
-
-int employee_findById(Employee* listEmployees,LinkedList* pArrayListEmployee)
+/*int employee_findById(Employee* listEmployees,LinkedList* pArrayListEmployee)
 {
     int i;
     int idEmployee;
@@ -187,4 +153,4 @@ int employee_findById(Employee* listEmployees,LinkedList* pArrayListEmployee)
        }
     }
     return r;
-}
+}*/

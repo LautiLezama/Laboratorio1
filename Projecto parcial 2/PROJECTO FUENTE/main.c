@@ -188,7 +188,7 @@ int main()
             break;
         default:
             printf("\nOpcion invalida.\n");
-            break;
+            break;*/
         }
         system("pause");
         system("cls");

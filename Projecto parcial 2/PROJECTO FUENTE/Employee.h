@@ -22,14 +22,12 @@ int sGetChar(Employee* this,char* char1);
 int getId(Employee* this,int* int1);
 int sGetChar(Employee* this,char* char1);
 
-int filtrado(Employee* this, int)
+int filtrar(void*);
 
+int compararChars(void* , void* );
+int compararInts(void*,void*);
 
-int comparaPorNombre(void* , void* );
-int comparaPorSueldos(void*,void*);
-int comparaPorHorasTrabajadas(void*,void*);
 int employee_findById(Employee*,LinkedList*);
 void employee_showOneEmployee(LinkedList*,int);
-int filtrarPorSueldo(void*);
 
 #endif // employee_H_INCLUDED

@@ -326,7 +326,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
     return r;
 }*/
 
-LinkedList* controller_filterEmployee(LinkedList* pArrayListEmployee)
+/*LinkedList* controller_filterEmployee(LinkedList* pArrayListEmployee)
 {
     int r=-1;
     int opcion;
@@ -380,6 +380,6 @@ LinkedList* controller_filterEmployee(LinkedList* pArrayListEmployee)
         }
     }
     return r;
-}
+}*/
 
 

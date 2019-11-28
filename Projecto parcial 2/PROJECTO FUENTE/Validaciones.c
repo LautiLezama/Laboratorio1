@@ -78,3 +78,21 @@ int intCmp(int int1,int int2)
 
     return ret;
 }
+
+int idMax(LinkedList* pArrayList)
+{
+    int maximo;
+    int flag = 0;
+    Employee* aux;
+    int i;
+    for(i=0;i<ll_len(pArrayList);i++)
+    {
+       aux = ll_get(pArrayList,i);
+
+       if(aux->idLlamada > maximo || flag == 0)
+       {
+           maximo = aux->idLlamada;
+       }
+    }
+    return maximo;
+}
