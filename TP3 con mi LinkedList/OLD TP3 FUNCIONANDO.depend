@@ -1,0 +1,48 @@
+# depslib dependency file v1.0
+1574908479 source:c:\users\lauta\desktop\facultad\laboratorio1\tp3 con mi linkedlist\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	<conio.h>
+	"parser.h"
+	"Validaciones.h"
+
+1574560151 c:\users\lauta\desktop\facultad\laboratorio1\tp3 con mi linkedlist\linkedlist.h
+
+1574560151 c:\users\lauta\desktop\facultad\laboratorio1\tp3 con mi linkedlist\employee.h
+	"LinkedList.h"
+	<string.h>
+	<stdio.h>
+	<conio.h>
+
+1574560151 c:\users\lauta\desktop\facultad\laboratorio1\tp3 con mi linkedlist\parser.h
+
+1574560151 c:\users\lauta\desktop\facultad\laboratorio1\tp3 con mi linkedlist\validaciones.h
+	<stdio.h>
+	<stdlib.h>
+
+1574560151 source:c:\users\lauta\desktop\facultad\laboratorio1\tp3 con mi linkedlist\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1574907284 source:c:\users\lauta\desktop\facultad\laboratorio1\tp3 con mi linkedlist\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1574560151 source:c:\users\lauta\desktop\facultad\laboratorio1\tp3 con mi linkedlist\validaciones.c
+	"Validaciones.h"
+
+1574936697 source:c:\users\lauta\desktop\facultad\laboratorio1\tp3 con mi linkedlist\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+
+1574908440 c:\users\lauta\desktop\facultad\laboratorio1\tp3 con mi linkedlist\controller.h
+

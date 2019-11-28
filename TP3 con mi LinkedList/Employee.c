@@ -50,7 +50,7 @@ int employee_setNombre(Employee* this,char* nombre)
     return r;
 }
 
-char* employee_getNombre(Employee* this,char* nombre)
+int employee_getNombre(Employee* this,char* nombre)
 {
     if(this != NULL)
     {

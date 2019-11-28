@@ -62,14 +62,9 @@ int main()
             flag = 1;
             break;
         case 3:
-            if(flag == 1)
-            {
+
                 controller_addEmployee(listaEmpleados);
-            }
-            else
-            {
-                printf("\n\nLos datos no fueron cargados todavia.\n\n");
-            }
+
             break;
         case 4:
             if(flag == 1)
@@ -117,14 +112,10 @@ int main()
             }
             break;
         case 6:
-            if(flag == 1)
-            {
+
                 controller_ListEmployee(listaEmpleados);
-            }
-            else
-            {
-                printf("\n\nLos datos no fueron cargados todavia.\n\n");
-            }
+
+
             break;
         case 7:
             if(flag == 1)

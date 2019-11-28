@@ -183,7 +183,7 @@ int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
     int i;
-    for(i=1; i<ll_len(pArrayListEmployee); i++)
+    for(i=0; i<ll_len(pArrayListEmployee); i++)
     {
         employee_showOneEmployee(pArrayListEmployee,i);
     }
