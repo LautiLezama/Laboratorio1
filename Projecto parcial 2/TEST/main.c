@@ -18,9 +18,13 @@ int main()
     do
     {
         printf("\n1. Cargar archivos.\n");
-        printf("2. Imprimir llamadas\n");
-        printf("3. Generar archivo de llamadas\n");
-        printf("4. Salir\n");
+        printf("2. Imprimir vuelos\n");
+        printf("3. Cantidad de pasajeros totales\n");
+        printf("4. Cantidad de pasajeros a Irlanda.\n");
+        printf("5.Filtrar vuelos cortos.\n");
+        printf("6.Listar vuelos a Portugal.\n");
+        printf("7.Filtrar a Alex Lifeson.\n");
+        printf("8. Salir \n");
         printf("Elija una opcion : ");
         scanf("%d",&option);
         switch(option)
@@ -103,7 +107,7 @@ int main()
             break;*/
 
         case 2:
-            if(flag == 1)
+         if(flag == 1)
             {
                 controller_ListEmployee(listaEmpleados);
             }
@@ -157,19 +161,70 @@ int main()
                 printf("\n\nLos datos no fueron cargados todavia.\n\n");
             }
             break;*/
-
-        case 4://CASE DE SALIDA
-            break;
-
         case 3:
             if(flag == 1)
             {
-                r = controller_filterEmployee(listaEmpleados);
+                r = controller_pasajerosTotales(listaEmpleados);
+                printf("\nLa cantidad de pasajeros es de %d\n\n",r);
+            }
+            else
+            {
+                 printf("\n\nLos datos no fueron cargados todavia.\n\n");
+            }
+            break;
+
+        case 4:
+            if(flag == 1)
+            {
+                r = controller_pasajerosIrlanda(listaEmpleados);
+                printf("\nLa cantidad de pasajeros es de %d\n\n",r);
+            }
+            else
+            {
+                 printf("\n\nLos datos no fueron cargados todavia.\n\n");
+            }
+            break;
+        case 8:
+            break;
+
+        case 5:
+            if(flag == 1)
+            {
+                r = controller_filtrarVuelosCortos(listaEmpleados);
                 if(r==0)
                 {
                     printf("\n\nLista filtrada con exito\n\n");
                 }
                 else
+                {
+                    printf("\n\nNo se ha podido filtrar la lista\n\n");
+                }
+            }
+            else
+            {
+                printf("\n\nLos datos no fueron cargados todavia.\n\n");
+            }
+            break;
+
+        case 6:
+            if(flag == 1)
+            {
+                r = controller_listarVuelosPortugal(listaEmpleados);
+                if(r==-1)
+                {
+                    printf("\n\nNo se ha podido filtrar la lista\n\n");
+                }
+            }
+            else
+            {
+                printf("\n\nLos datos no fueron cargados todavia.\n\n");
+            }
+            break;
+        case 7:
+            if(flag == 1)
+            {
+                r = controller_filtrarAlexLifeson(listaEmpleados);
+                if(r==-1)
                 {
                     printf("\n\nNo se ha podido filtrar la lista\n\n");
                 }
@@ -186,7 +241,7 @@ int main()
         system("pause");
         system("cls");
     }
-    while(option != 4);
+    while(option != 5);
 
     return 0;
 }

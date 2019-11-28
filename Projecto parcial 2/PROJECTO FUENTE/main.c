@@ -17,22 +17,14 @@ int main()
 
     do
     {
-        printf("\n1. Cargar los datos de los empleados desde el archivo data.csv (modo texto).\n");
-        printf("2. Cargar los datos de los empleados desde el archivo data.csv (modo binario)\n");
-        printf("3. Alta de empleado.\n");
-        printf("4. Modificar datos de empleado.\n");
-        printf("5. Baja de empleado.\n");
-        printf("6. Listar empleados.\n");
-        printf("7. Ordenar empleados.\n");
-        printf("8. Guardar los datos de los empleados en el archivo data.csv (modo texto).\n");
-        printf("9. Guardar los datos de los empleados en el archivo data.csv (modo binario).\n");
-        printf("10. Salir.\n");
-        printf("11.Filter test. \n");
+        printf("\n1. Cargar archivos.\n");
+        printf("2. Imprimir vuelos\n");
+        printf("3. Salir \n");
         printf("Elija una opcion : ");
         scanf("%d",&option);
         switch(option)
         {
-        /*case 1:
+        case 1:
             r = controller_loadFromText("data.csv",listaEmpleados);
             if(r==0)
             {
@@ -43,7 +35,7 @@ int main()
             {
                 printf("\n\nNo se pudieron cargar los datos.\n\n");
             }
-            break;*/
+            break;
 
         /*case 2:
             controller_loadFromBinary("data.bin",listaEmpleados);
@@ -109,8 +101,8 @@ int main()
             }
             break;*/
 
-        /*case 6:
-            if(flag == 1)
+        case 2:
+         if(flag == 1)
             {
                 controller_ListEmployee(listaEmpleados);
             }
@@ -118,7 +110,7 @@ int main()
             {
                 printf("\n\nLos datos no fueron cargados todavia.\n\n");
             }
-            break;*/
+            break;
 
         /*case 7:
             if(flag == 1)
@@ -165,8 +157,8 @@ int main()
             }
             break;*/
 
-        /*case 10://CASE DE SALIDA
-            break;*/
+        case 3:
+            break;
 
         /*case 11:
             if(flag == 1)
@@ -193,7 +185,7 @@ int main()
         system("pause");
         system("cls");
     }
-    while(option != 10);
+    while(option != 3);
 
     return 0;
 }

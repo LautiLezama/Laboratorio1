@@ -587,3 +587,24 @@ LinkedList* ll_filter(LinkedList* this, int (*fn)(void* element))
     return listR;
 
 }
+
+int ll_count(LinkedList* this, int(*fn)(void* element))
+{
+    int i;
+    int accum = 0;
+    int auxAccum;
+    void* aux;
+    LinkedList* listR = NULL;
+
+    if(this!=NULL && fn != NULL)
+    {
+        listR = ll_newLinkedList();
+        for(i=0; i<ll_len(this); i++)
+        {
+            aux = ll_get(this,i);
+            auxAccum = fn(aux);
+            accum = accum + auxAccum;
+        }
+    }
+    return accum;
+}

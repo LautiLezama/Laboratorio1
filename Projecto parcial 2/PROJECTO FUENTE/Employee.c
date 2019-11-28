@@ -14,54 +14,182 @@ Employee* employee_new()
 /////////////
 
 
-Employee* employee_newParametros(char* intStr,char* charStr)
+Employee* employee_newParametros(char* idVueloStr,char* idAvionStr,char* idPilotoStr,char* fechaStr,char* destinoStr,char* cantPasajerosStr, char* horaDespegueStr, char* horaLlegadaStr)
 {
     Employee* oneEmployee = employee_new();
     if(oneEmployee!=NULL)
     {
-        setInt(oneEmployee,atoi(intStr));
-        setChar(oneEmployee,charStr);
+        setIdVuelo(oneEmployee,atoi(idVueloStr));
+        setIdAvion(oneEmployee,atoi(idAvionStr));
+        setIdPiloto(oneEmployee,atoi(idPilotoStr));
+        setCantPasajeros(oneEmployee,atoi(cantPasajerosStr));
+        setHoraDespegue(oneEmployee,atoi(horaDespegueStr));
+        setHoraLlegada(oneEmployee,atoi(horaLlegadaStr));
+        setFecha(oneEmployee,fechaStr);
+        setDestino(oneEmployee,destinoStr);
     }
     return oneEmployee;
 }
 
 
-int setInt(Employee* this,int int1)
+int setIdVuelo(Employee* this,int int1)
 {
     int r = -1;
     if(this != NULL && int1>0)
     {
-        this->CAMBIAR=int1;
+        this->idVuelo=int1;
         r = 0;
     }
     return r;
 }
 
-int setChar(Employee* this,char* char1)
+int setIdAvion(Employee* this,int int1)
+{
+    int r = -1;
+    if(this != NULL && int1>0)
+    {
+        this->idAvion=int1;
+        r = 0;
+    }
+    return r;
+}
+
+int setIdPiloto(Employee* this,int int1)
+{
+    int r = -1;
+    if(this != NULL && int1>0)
+    {
+        this->idPiloto=int1;
+        r = 0;
+    }
+    return r;
+}
+
+int setCantPasajeros(Employee* this,int int1)
+{
+    int r = -1;
+    if(this != NULL && int1>0)
+    {
+        this->cantPasajeros=int1;
+        r = 0;
+    }
+    return r;
+}
+
+int setHoraDespegue(Employee* this,int int1)
+{
+    int r = -1;
+    if(this != NULL && int1>0)
+    {
+        this->horaDespegue=int1;
+        r = 0;
+    }
+    return r;
+}
+
+int setHoraLlegada(Employee* this,int int1)
+{
+    int r = -1;
+    if(this != NULL && int1>0)
+    {
+        this->horaLlegada=int1;
+        r = 0;
+    }
+    return r;
+}
+
+
+
+int setDestino(Employee* this,char* char1)
 {
     int r = -1;
     if(this != NULL && char1>0)
     {
-        strcpy(this->CAMBIAR,char1);
+        strcpy(this->destino,char1);
         r = 0;
     }
     return r;
 }
 
-int getInt(Employee* this,int* int1)
+int setFecha(Employee* this,char* char1)
+{
+    int r = -1;
+    if(this != NULL && char1>0)
+    {
+        strcpy(this->fecha,char1);
+        r = 0;
+    }
+    return r;
+}
+
+int getIdVuelo(Employee* this,int* int1)
 {
     if(this != NULL)
     {
-        *int1 = this->CAMBIAR;
+        *int1 = this->idVuelo;
     }
     return *int1;
 }
 
-int sGetChar(Employee* this,char* char1)
+int getIdAvion(Employee* this,int* int1)
 {
     if(this != NULL)
     {
-        strcpy(char1, this->CAMBIAR);
+        *int1 = this->idAvion;
+    }
+    return *int1;
+}
+
+int getIdPiloto(Employee* this,int* int1)
+{
+    if(this != NULL)
+    {
+        *int1 = this->idPiloto;
+    }
+    return *int1;
+}
+
+int getCantPasajeros(Employee* this,int* int1)
+{
+    if(this != NULL)
+    {
+        *int1 = this->cantPasajeros;
+    }
+    return *int1;
+}
+
+int getHoraDespegue(Employee* this,int* int1)
+{
+    if(this != NULL)
+    {
+        *int1 = this->horaDespegue;
+    }
+    return *int1;
+}
+
+int getHoraLlegada(Employee* this,int* int1)
+{
+    if(this != NULL)
+    {
+        *int1 = this->horaLlegada;
+    }
+    return *int1;
+}
+
+int getFecha(Employee* this,char* char1)
+{
+    if(this != NULL)
+    {
+        strcpy(char1, this->fecha);
+    }
+    return char1;
+}
+
+int getDestino(Employee* this,char* char1)
+{
+    if(this != NULL)
+    {
+        strcpy(char1, this->destino);
     }
     return char1;
 }
@@ -72,21 +200,53 @@ int sGetChar(Employee* this,char* char1)
 /////////////
 /////////////
 
-/*void employee_showOneEmployee(LinkedList* pArrayListEmployee,int index)
+void employee_showOneEmployee(LinkedList* pArrayListEmployee,int index)
 {
     Employee* aux;
-    int id;
-    int sueldo;
-    int horasTrabajadas;
-    char nombre[51];
+    int idVuelo;
+    int idAvion;
+    int idPiloto;
+    char fecha[50];
+    char destino[50];
+    int cantPasajeros;
+    int horaDespegue;
+    int horaLlegada;
+    char idPilotoText[50];
 
     aux = (Employee*)ll_get(pArrayListEmployee, index);
-    employee_getId(aux, &id);
-    employee_getNombre(aux,&nombre);
-    employee_getSueldo(aux,&sueldo);
-    employee_getHorasTrabajadas(aux, &horasTrabajadas);
-    printf("%d--%s--%d--%d\n",id,nombre,sueldo,horasTrabajadas);
-}*/
+    getIdVuelo(aux, &idVuelo);
+    getIdAvion(aux,&idAvion);
+    getIdPiloto(aux,&idPiloto);
+    getFecha(aux, &fecha);
+    getDestino(aux, &destino);
+    getCantPasajeros(aux,&cantPasajeros);
+    getHoraDespegue(aux,&horaDespegue);
+    getHoraLlegada(aux, &horaLlegada);
+    switch(idPiloto)
+    {
+    case 1:
+        strcpy(idPilotoText,"Alex Lifeson");
+        break;
+    case 2:
+        strcpy(idPilotoText,"Richard Bach");
+
+        break;
+    case 3:
+        strcpy(idPilotoText,"John Kerry");
+
+        break;
+    case 4:
+        strcpy(idPilotoText,"Erwin Rommel");
+
+        break;
+    case 5:
+        strcpy(idPilotoText,"Stephen Coonts");
+
+        break;
+
+    }
+    printf("%d--%d--%s--%s--%s--%d--%d--%d\n",idVuelo,idAvion,idPilotoText,fecha,destino,cantPasajeros,horaDespegue,horaLlegada);
+}
 
 /////////////
 /////////////

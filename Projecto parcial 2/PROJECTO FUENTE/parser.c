@@ -14,19 +14,23 @@ int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
 {
     Employee* listEmployees;
     int r = 0;
-    char id[50];
-    char nombre[50];
-    char horasTrabajadas[50];
-    char sueldo[50];
+    char idVuelo[50];
+    char idAvion[50];
+    char idPiloto[50];
+    char fecha[50];
+    char destino[50];
+    char cantPasajeros[50];
+    char horaDespegue[50];
+    char horaLlegada[50];
     if(pFile == NULL)
     {
         return -1;
     }
-      fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
+      fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n",idVuelo,idAvion,idPiloto,fecha,destino,cantPasajeros,horaDespegue,horaLlegada);
     do
     {
-        fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
-        listEmployees = employee_newParametros(id,nombre,horasTrabajadas);
+        fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n",idVuelo,idAvion,idPiloto,fecha,destino,cantPasajeros,horaDespegue,horaLlegada);
+        listEmployees = employee_newParametros(idVuelo,idAvion,idPiloto,fecha,destino,cantPasajeros,horaDespegue,horaLlegada);
         ll_add(pArrayListEmployee, listEmployees);
 
     }

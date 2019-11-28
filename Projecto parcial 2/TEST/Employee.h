@@ -6,39 +6,49 @@
 #include <conio.h>
 typedef struct
 {
-    int idLlamada;
+    int idVuelo;
+    int idAvion;
+    int idPiloto;
     char fecha[50];
-    int numeroCliente;
-    int idProblema;
-    char solucionado[50];
-}Employee;
+    char destino[50];
+    int cantPasajeros;
+    int horaDespegue;
+    int horaLlegada;
+}sVuelo;
 
-Employee* employee_new();
-Employee* employee_newParametros(char*,char*,char*,char*,char*);
+sVuelo* nuevoVuelo();
+sVuelo* vuelo_newParametros(char*,char*,char*,char*,char*,char*,char*,char*);
 void employee_delete();
 
-int setIdLlamada(Employee* this,int int1);
-int setNumeroCliente(Employee* this,int int1);
-int setIdProblema(Employee* this,int int1);
-int setFecha(Employee* this,char* char1);
-int setSolucion(Employee* this,char* char1);
+int setIdVuelo(sVuelo* this,int int1);
+int setIdAvion(sVuelo* this,int int1);
+int setIdPiloto(sVuelo* this,int int1);
+int setCantPasajeros(sVuelo* this,int int1);
+int setHoraDespegue(sVuelo* this,int int1);
+int setHoraLlegada(sVuelo* this,int int1);
+int setFecha(sVuelo* this,char* char1);
+int setDestino(sVuelo* this,char* char1);
 
-int getIdLlamada(Employee* this,int* int1);
-int getNumeroCliente(Employee* this,int* int1);
-int getIdProblema(Employee* this,int* int1);
-int getFecha(Employee* this,char* char1);
-int getSolucion(Employee* this,char* char1);
+int getIdVuelo(sVuelo* this,int* int1);
+int getIdAvion(sVuelo* this,int* int1);
+int getIdPiloto(sVuelo* this,int* int1);
+int getCantPasajeros(sVuelo* this,int* int1);
+int getHoraDespegue(sVuelo* this,int* int1);
+int getHoraLlegada(sVuelo* this,int* int1);
+int getFecha(sVuelo* this,char* char1);
+int getDestino(sVuelo* this,char* char1);
 
-int filtrarProblema1(void*);
-int filtrarProblema2(void*);
-int filtrarProblema3(void*);
-int filtrarProblema4(void*);
-int filtrarProblema5(void*);
+int contadorPasajerosTotal(void*);
+int contadorPasajerosIrlanda(void*);
+
+int filtrarVuelosCortos(void*);
+int filtrarVuelosPortugal(void*);
+int filtrarAlexLifeson(void*);
 
 int compararChars(void* , void* );
 int compararInts(void*,void*);
 
-int employee_findById(Employee*,LinkedList*);
-void employee_showOneEmployee(LinkedList*,int);
+int employee_findById(sVuelo*,LinkedList*);
+void showUnVuelo(LinkedList*,int);
 
 #endif // employee_H_INCLUDED

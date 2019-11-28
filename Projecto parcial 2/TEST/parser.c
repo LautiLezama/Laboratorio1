@@ -6,29 +6,32 @@
 /** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo texto).
  *
  * \param path char*
- * \param pArrayListEmployee LinkedList*
+ * \param pArrayListsVuelo LinkedList*
  * \return int
  *
  */
-int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
+int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListsVuelo)
 {
-    Employee* listEmployees;
+    sVuelo* listaVuelos;
     int r = 0;
-    char idLlamada[50];
+    char idVuelo[50];
+    char idAvion[50];
+    char idPiloto[50];
     char fecha[50];
-    char numeroCliente[50];
-    char idProblema[50];
-    char solucionado[50];
+    char destino[50];
+    char cantPasajeros[50];
+    char horaDespegue[50];
+    char horaLlegada[50];
     if(pFile == NULL)
     {
         return -1;
     }
-    fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^\n]\n",idLlamada,fecha,numeroCliente,idProblema,solucionado);
+      fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n",idVuelo,idAvion,idPiloto,fecha,destino,cantPasajeros,horaDespegue,horaLlegada);
     do
     {
-        fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^\n]\n",idLlamada,fecha,numeroCliente,idProblema,solucionado);
-        listEmployees = employee_newParametros(idLlamada,fecha,numeroCliente,idProblema,solucionado);
-        ll_add(pArrayListEmployee, listEmployees);
+        fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n",idVuelo,idAvion,idPiloto,fecha,destino,cantPasajeros,horaDespegue,horaLlegada);
+        listaVuelos = vuelo_newParametros(idVuelo,idAvion,idPiloto,fecha,destino,cantPasajeros,horaDespegue,horaLlegada);
+        ll_add(pArrayListsVuelo, listaVuelos);
 
     }
     while(!feof(pFile));
@@ -43,28 +46,28 @@ int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
 /** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo binario).
  *
  * \param path char*
- * \param pArrayListEmployee LinkedList*
+ * \param pArrayListsVuelo LinkedList*
  * \return int
  *
  */
-/*int parser_EmployeeFromBinary(FILE* pFile, LinkedList* pArrayListEmployee)
+int parser_sVueloFromBinary(FILE* pFile, LinkedList* pArrayListsVuelo)
 {
 
-    Employee* listEmployees;
+    sVuelo* listsVuelos;
     if(pFile == NULL)
     {
         return -1;
     }
     while(!feof(pFile))
     {
-        listEmployees = employee_new();
-        fread(listEmployees,sizeof(Employee),1,pFile);
+        listsVuelos = nuevoVuelo();
+        fread(listsVuelos,sizeof(sVuelo),1,pFile);
         if(feof(pFile))
         {
             break;
         }
-        ll_add(pArrayListEmployee, listEmployees);
+        ll_add(pArrayListsVuelo, listsVuelos);
     }
 
     return 1;
-}*/
+}

@@ -185,7 +185,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
     int i;
     for(i=0; i<ll_len(pArrayListEmployee); i++)
     {
-        employee_showOneEmployee(pArrayListEmployee,i);
+        showUnVuelo(pArrayListEmployee,i);
     }
     return 1;
 }
@@ -283,25 +283,30 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
 {
     FILE* pFile;
-    Employee* listEmployees;
+    sVuelo* listEmployees;
     int r = 0;
     int i;
-    int idLlamada;
+    int idVuelo;
+    int idAvion;
+    int idPiloto;
     char fecha[50];
-    int numeroCliente;
-    int idProblema;
-    char solucionado[50];
+    char destino[50];
+    int cantPasajeros;
+    int horaDespegue;
+    int horaLlegada;
     pFile = fopen(path, "w");
     for(i=0; i<ll_len(pArrayListEmployee); i++)
     {
-        listEmployees = (Employee*)ll_get(pArrayListEmployee,i);
-        getIdLlamada(listEmployees, &idLlamada);
-    getFecha(listEmployees,&fecha);
-    getNumeroCliente(listEmployees,&numeroCliente);
-    getIdProblema(listEmployees, &idProblema);
-    getSolucion(listEmployees, &solucionado);
-
-        fprintf(pFile,"%d,%s,%d,%d,%d\n",idLlamada,fecha,numeroCliente,idProblema,solucionado);
+        listEmployees = (sVuelo*)ll_get(pArrayListEmployee,i);
+        getIdVuelo(listEmployees, &idVuelo);
+    getIdAvion(listEmployees,&idAvion);
+    getIdPiloto(listEmployees,&idPiloto);
+    getFecha(listEmployees, &fecha);
+    getDestino(listEmployees, &destino);
+    getCantPasajeros(listEmployees,&cantPasajeros);
+    getHoraDespegue(listEmployees,&horaDespegue);
+    getHoraLlegada(listEmployees, &horaLlegada);
+        fprintf(pFile,"%d,%d,%d,%s,%s,%d,%d,%d\n",idVuelo,idAvion,idPiloto,fecha,destino,cantPasajeros,horaDespegue,horaLlegada);
     }
 
     fclose(pFile);
@@ -329,60 +334,80 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
     return r;
 }*/
 
-LinkedList* controller_filterEmployee(LinkedList* pArrayListEmployee)
+int controller_filtrarVuelosCortos(LinkedList* pArrayListEmployee)
 {
+
     int r=-1;
-    int opcion;
-    char respuesta;
     LinkedList* listaFiltrada = NULL;
-    printf("\n\nQue id de problema quiere filtrar?(1 a 5) : ");
-    scanf("%d",&opcion);
-    switch(opcion)
-    {
-    case 1:
-        listaFiltrada = ll_filter(pArrayListEmployee,filtrarProblema1);
-        break;
-    case 2:
-        listaFiltrada = ll_filter(pArrayListEmployee,filtrarProblema2);
-        break;
-    case 3:
-        listaFiltrada = ll_filter(pArrayListEmployee,filtrarProblema3);
-        break;
-    case 4:
-        listaFiltrada = ll_filter(pArrayListEmployee,filtrarProblema4);
-        break;
-    case 5:
-        listaFiltrada = ll_filter(pArrayListEmployee,filtrarProblema5);
-        break;
-    default:
-        r = 1;
-        break;
-    }
+    listaFiltrada = ll_filter(pArrayListEmployee,filtrarVuelosCortos);
 
     if(listaFiltrada != NULL)
     {
         r=0;
         if(ll_len(listaFiltrada)>0)
         {
-            controller_ListEmployee(listaFiltrada);
-            printf("\nPresione s para guardar la lista filtrada en un nuevo archivo: ");
-            fflush(stdin);
-            respuesta = getchar();
-            if(respuesta == 's')
-            {
-                controller_saveAsText("listaFiltrada.csv", listaFiltrada);
-            }
-            else
-            {
-                printf("\n\nSaliendo sin guardar\n\n");
-            }
+            //controller_ListEmployee(listaFiltrada);
+        controller_saveAsText("listaFiltrada.csv", listaFiltrada);
         }
         else
         {
-            printf("\n\n Ningun empleado cumple esa condicion. \n\n");
+            printf("\n\n Ningun vuelo cumple esa condicion. \n\n");
         }
     }
     return r;
+}
+
+int controller_listarVuelosPortugal(LinkedList* pArrayListEmployee)
+{
+    int r=-1;
+    LinkedList* listaFiltrada = NULL;
+    listaFiltrada = ll_filter(pArrayListEmployee,filtrarVuelosPortugal);
+
+    if(listaFiltrada != NULL)
+    {
+        r=0;
+        if(ll_len(listaFiltrada)>0)
+        {
+        controller_ListEmployee(listaFiltrada);
+        }
+        else
+        {
+        printf("\n\n Ningun vuelo cumple esa condicion. \n\n");
+        }
+    }
+    return r;
+}
+
+int controller_filtrarAlexLifeson(LinkedList* pArrayListEmployee)
+{
+    int r=-1;
+    LinkedList* listaFiltrada = NULL;
+    listaFiltrada = ll_filter(pArrayListEmployee,filtrarAlexLifeson);
+
+    if(listaFiltrada != NULL)
+    {
+        r=0;
+        if(ll_len(listaFiltrada)>0)
+        {
+        controller_ListEmployee(listaFiltrada);
+        }
+        else
+        {
+        printf("\n\n Ningun vuelo cumple esa condicion. \n\n");
+        }
+    }
+    return r;
+}
+
+
+int controller_pasajerosTotales(LinkedList* pArrayListEmployee)
+{
+    return ll_count(pArrayListEmployee,contadorPasajerosTotal);
+}
+
+int controller_pasajerosIrlanda(LinkedList* pArrayListEmployee)
+{
+    return ll_count(pArrayListEmployee,contadorPasajerosIrlanda);
 }
 
 

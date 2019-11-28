@@ -79,7 +79,7 @@ int intCmp(int int1,int int2)
     return ret;
 }
 
-int idMax(LinkedList* pArrayList)
+/*int idMax(LinkedList* pArrayList)
 {
     int maximo;
     int flag = 0;
@@ -95,4 +95,4 @@ int idMax(LinkedList* pArrayList)
        }
     }
     return maximo;
-}
+}*/

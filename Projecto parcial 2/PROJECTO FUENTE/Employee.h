@@ -6,21 +6,37 @@
 #include <conio.h>
 typedef struct
 {
-    int id;
-    char nombre[128];
-    int horasTrabajadas;
-    int sueldo;
+    int idVuelo;
+    int idAvion;
+    int idPiloto;
+    char fecha[50];
+    char destino[50];
+    int cantPasajeros;
+    int horaDespegue;
+    int horaLlegada;
 }Employee;
 
 Employee* employee_new();
-Employee* employee_newParametros(char*,char*,char*);
+Employee* employee_newParametros(char*,char*,char*,char*,char*,char*,char*,char*);
 void employee_delete();
 
-int setId(Employee* this,int int1);
-int sGetChar(Employee* this,char* char1);
+int setIdVuelo(Employee* this,int int1);
+int setIdAvion(Employee* this,int int1);
+int setIdPiloto(Employee* this,int int1);
+int setCantPasajeros(Employee* this,int int1);
+int setHoraDespegue(Employee* this,int int1);
+int setHoraLlegada(Employee* this,int int1);
+int setFecha(Employee* this,char* char1);
+int setDestino(Employee* this,char* char1);
 
-int getId(Employee* this,int* int1);
-int sGetChar(Employee* this,char* char1);
+int getIdVuelo(Employee* this,int* int1);
+int getIdAvion(Employee* this,int* int1);
+int getIdPiloto(Employee* this,int* int1);
+int getCantPasajeros(Employee* this,int* int1);
+int getHoraDespegue(Employee* this,int* int1);
+int getHoraLlegada(Employee* this,int* int1);
+int getFecha(Employee* this,char* char1);
+int getDestino(Employee* this,char* char1);
 
 int filtrar(void*);
 
