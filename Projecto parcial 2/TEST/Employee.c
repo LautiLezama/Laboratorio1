@@ -213,7 +213,7 @@ void showUnVuelo(LinkedList* pArrayListsVuelo,int index)
     int horaLlegada;
     char idPilotoText[50];
 
-    aux = (sVuelo*)ll_get(pArrayListsVuelo, index);
+    aux = ll_get(pArrayListsVuelo, index);
     getIdVuelo(aux, &idVuelo);
     getIdAvion(aux,&idAvion);
     getIdPiloto(aux,&idPiloto);

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1575843881 source:c:\users\lauta\desktop\simulacro parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
